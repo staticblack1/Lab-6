@@ -38,13 +38,25 @@ print(decimal_to_binary(10))
 def binary_to_decimal(b):
     exp = len(b) - 1
     if exp==0:
-        return int(0)
+        return int(b)
     else:
         return  binary_to_decimal(b.removeprefix(b[0])) + int(b[0]) * 2**exp
 
 
+print(binary_to_decimal('101'))
 
-print(binary_to_decimal('1010101'))
+def ip_to_binary(ip):
+    if is_valid_ip(ip):
+        return
+    bin_ip=''
+
+    for part in ip.split('.'):
+        bin_ip += decimal_to_binary(int(part))+'.'
+
+    return bin_ip.removesuffix('.')
+
+print(ip_to_binary('125.246.54.1'))
+
 
 
 
